@@ -15,13 +15,12 @@ import {
   
   import Search from "@/components/Search";
   import Filters from "@/components/Filters";
-
+  import NoResults from "@/components/NoResults";
   import { Card, FeaturedCard } from "@/components/Cards";
   
   import { useAppwrite } from "@/lib/useAppwrite";
   import { useGlobalContext } from "@/lib/global-provider";
   import { getLatestProperties, getProperties } from "@/lib/appwrite";
-import NoResults from "@/components/NoResults";
   
   const Home = () => {
     const { user } = useGlobalContext();
@@ -114,7 +113,7 @@ import NoResults from "@/components/NoResults";
                 {latestPropertiesLoading ? (
                   <ActivityIndicator size="large" className="text-primary-300" />
                 ) : !latestProperties || latestProperties.length === 0 ? (
-                  <NoResults />  
+                  <NoResults />
                 ) : (
                   <FlatList
                     data={latestProperties}
